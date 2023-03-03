@@ -15,7 +15,9 @@ function Login() {
 				<h2>Login</h2>
 				<Input label="Email" placeholder="Digite seu email aqui" />
 				<Input label="Senha" placeholder="Digite sua senha aqui" />
-				<Button backgroung="black">Entrar</Button>
+				<Button background="#FF577F" color="white">
+					Entrar
+				</Button>
 			</LoginForm>
 		</Container>
 	);

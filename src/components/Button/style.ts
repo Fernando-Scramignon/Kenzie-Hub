@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
-const Container = styled.button`
-	background: var(--color-primary);
+import { IButton } from "../../interfaces/Button";
+
+const Container = styled.button<IButton>`
+	/* color */
+	background: ${(props) => props.background};
+	color: white;
 
 	/* font */
 	font-family: "Inter", sans-serif;
