@@ -1,0 +1,11 @@
+services:
+    kenzie_hub_gui:
+        container_name: kenzie_hub_gui
+        image: kenzie_hub_gui
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - ./src:/app/src
+        ports:
+            - 5173:5173
