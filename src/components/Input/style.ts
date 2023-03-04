@@ -1,13 +1,32 @@
 import styled from "styled-components";
 
 const Container = styled.div`
+	width: 100%;
+
 	display: flex;
 	flex-direction: column;
 	gap: 17px;
 
-	span {
+	label {
 		font-family: "Inter", sans-serif;
-		font-size: 10px;
+		font-size: 12px;
+	}
+
+	input {
+		height: 38px;
+		background: var(--grey-2);
+		color: var(--grey-0);
+
+		padding: 8px 13px;
+
+		border-radius: 3.2px;
+	}
+
+	input::placeholder {
+		color: var(--grey-1);
+		font-family: "Inter", sans-serif;
+		font-weight: 400;
+		font-size: 12px;
 	}
 `;
 
