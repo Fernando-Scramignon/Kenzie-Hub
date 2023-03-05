@@ -16,7 +16,11 @@ function Login() {
 			<LoginForm>
 				<h2>Login</h2>
 				<Input label="Email" placeholder="Digite seu email aqui" />
-				<Input label="Senha" placeholder="Digite sua senha aqui" />
+				<Input
+					label="Senha"
+					placeholder="Digite sua senha aqui"
+					type="password"
+				/>
 				<Button
 					background={Colors.colorPrimary}
 					hoverBackground={Colors.colorPrimary50}

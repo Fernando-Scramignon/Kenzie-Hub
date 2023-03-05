@@ -1,12 +1,69 @@
-import { Container } from "./style";
+import { Container, PasswordDiv } from "./style";
 
 import { IInput } from "../../interfaces/Input";
 
-function Input({ label, placeholder }: IInput) {
+import { useState } from "react";
+
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+
+import { Colors } from "../../utils";
+
+function Input({ label, placeholder, type = "default" }: IInput) {
+	const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+	function alternateIsPasswordVisible() {
+		setIsPasswordVisible(!isPasswordVisible);
+	}
+
+	const EYE_ICON = (
+		<AiFillEye
+			onClick={alternateIsPasswordVisible}
+			className="eye-icon"
+			size={17}
+			style={{ color: Colors.grey1 }}
+		/>
+	);
+
+	const EYE_ICON_HIDE = (
+		<AiFillEyeInvisible
+			onClick={alternateIsPasswordVisible}
+			className="eye-icon"
+			size={17}
+			style={{ color: Colors.grey1 }}
+		/>
+	);
+
+	const INPUT_TYPES = {
+		default: (
+			<input
+				name="input"
+				className="default-input"
+				type="text"
+				placeholder={placeholder}
+				required
+			/>
+		),
+		password: (
+			<PasswordDiv>
+				<input
+					name="input"
+					type={isPasswordVisible ? "text" : "password"}
+					placeholder={placeholder}
+					required
+				/>
+				<div className="eye-icon-div">
+					{isPasswordVisible ? EYE_ICON_HIDE : EYE_ICON}
+				</div>
+			</PasswordDiv>
+		),
+	};
+
 	return (
 		<Container>
-			<label>{label}</label>
-			<input type="text" placeholder={placeholder} />
+			<div className="label-div">
+				<label htmlFor="input">{label}</label>
+			</div>
+			{INPUT_TYPES[type]}
 		</Container>
 	);
 }
