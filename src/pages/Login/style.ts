@@ -19,6 +19,7 @@ const Container = styled.div`
 
 const LoginForm = styled.form`
 	width: 90%;
+	max-width: 370px;
 	padding: 33px 17px;
 
 	background: var(--grey-3);
@@ -30,6 +31,17 @@ const LoginForm = styled.form`
 
 	box-shadow: 0px 3.2px 32.1px -8px #00000040;
 	border-radius: 3.2px;
+
+	h2 {
+		font-size: 16px;
+		font-weight: 700;
+	}
+
+	@media (min-width: 1024px) {
+		h2 {
+			font-size: 22px;
+		}
+	}
 `;
 
 const RegisterSection = styled.div`
@@ -49,6 +61,12 @@ const RegisterSection = styled.div`
 		&:hover {
 			text-decoration: underline;
 			cursor: pointer;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		span {
+			font-size: 12px;
 		}
 	}
 `;

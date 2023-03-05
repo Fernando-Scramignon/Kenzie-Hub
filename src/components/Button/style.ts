@@ -18,11 +18,14 @@ const Container = styled.button<IButton>`
 
 	border-radius: 4px;
 
-	transition: 400ms;
+	transition: 300ms;
 	&:hover {
 		background: ${(props) => props.hoverBackground};
 		border-color: ${(props) => props.hoverBackground};
 		cursor: pointer;
+	}
+	@media (min-width: 1024px) {
+		font-size: 14px;
 	}
 `;
 

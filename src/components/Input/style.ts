@@ -7,10 +7,6 @@ const Container = styled.div`
 	flex-direction: column;
 	gap: 17px;
 
-	.label-div {
-		/* This will make me able to position the eye icon horizontaly */
-	}
-
 	label {
 		font-family: "Inter", sans-serif;
 		font-size: 12px;
@@ -33,10 +29,20 @@ const Container = styled.div`
 		font-weight: 400;
 		font-size: 12px;
 	}
+
+	@media (min-width: 1024px) {
+		label {
+			font-size: 14px;
+		}
+	}
 `;
 
 const PasswordDiv = styled.div`
 	display: flex;
+
+	.eye-icon {
+		cursor: pointer;
+	}
 
 	.eye-icon-div {
 		align-self: center;
