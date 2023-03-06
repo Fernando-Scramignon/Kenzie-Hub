@@ -18,7 +18,7 @@ const Container = styled.div`
 		background: var(--grey-2);
 		color: var(--grey-0);
 
-		padding: 8px 13px;
+		padding: 8px 25px;
 
 		border-radius: 3.2px;
 	}

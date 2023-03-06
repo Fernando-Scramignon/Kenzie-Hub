@@ -15,6 +15,7 @@ const Container = styled.div`
 
 const RegisterHeader = styled.header`
 	width: 90%;
+	max-width: 370px;
 
 	display: flex;
 	justify-content: space-between;
@@ -22,6 +23,7 @@ const RegisterHeader = styled.header`
 
 	img {
 		height: 18px;
+		cursor: pointer;
 	}
 
 	button {
@@ -32,6 +34,7 @@ const RegisterHeader = styled.header`
 
 const RegisterForm = styled.form`
 	width: 90%;
+	max-width: 370px;
 	padding: 18px;
 	border-radius: 3.2px;
 

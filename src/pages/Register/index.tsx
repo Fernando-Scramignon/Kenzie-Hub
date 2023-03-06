@@ -6,6 +6,8 @@ import {
 	FormInputDiv,
 } from "./style";
 
+import { NavigateFunction, useNavigate } from "react-router-dom";
+
 import logo from "../../assets/logo.svg";
 
 import Button from "../../components/Button";
@@ -14,11 +16,17 @@ import Input from "../../components/Input";
 import { Colors } from "../../utils";
 
 function Register() {
+	const navigate: NavigateFunction = useNavigate();
+	function navigatetoLogin(): void {
+		navigate("/");
+	}
+
 	return (
 		<Container>
 			<RegisterHeader>
-				<img src={logo} alt="logo" />
+				<img src={logo} alt="logo" onClick={navigatetoLogin} />
 				<Button
+					clickFunction={navigatetoLogin}
 					color={Colors.grey0}
 					background={Colors.grey3}
 					hoverBackground={Colors.grey2}
