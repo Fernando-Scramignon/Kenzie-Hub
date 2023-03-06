@@ -4,6 +4,7 @@ interface IButton {
 	background: string;
 	hoverBackground?: string;
 	color?: string;
+	clickFunction?: Function;
 	children: ReactNode;
 }
 

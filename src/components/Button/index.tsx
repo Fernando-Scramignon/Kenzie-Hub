@@ -7,9 +7,11 @@ function Button({
 	children,
 	hoverBackground = background,
 	color = "white",
+	clickFunction,
 }: IButton) {
 	return (
 		<Container
+			onClick={() => clickFunction && clickFunction()}
 			background={background}
 			color={color}
 			hoverBackground={hoverBackground}

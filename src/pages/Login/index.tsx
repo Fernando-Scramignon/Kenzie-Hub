@@ -1,5 +1,8 @@
 import { Container, LoginForm, RegisterSection } from "./style";
 
+import { useNavigate } from "react-router-dom";
+import { NavigateFunction } from "react-router-dom";
+
 // assets
 import logo from "../../assets/logo.svg";
 
@@ -10,6 +13,12 @@ import Button from "../../components/Button";
 import { Colors } from "../../utils";
 
 function Login() {
+	const navigate: NavigateFunction = useNavigate();
+
+	function navigateToRegisterPage() {
+		navigate("/register");
+	}
+
 	return (
 		<Container>
 			<img src={logo} alt="logo" />
@@ -29,8 +38,11 @@ function Login() {
 					Entrar
 				</Button>
 				<RegisterSection>
-					<span>Ainda não possuí uma conta?</span>
+					<span onClick={navigateToRegisterPage}>
+						Ainda não possuí uma conta?
+					</span>
 					<Button
+						clickFunction={navigateToRegisterPage}
 						background={Colors.grey1}
 						hoverBackground={Colors.grey2}
 						color={Colors.white}
