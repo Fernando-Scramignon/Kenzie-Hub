@@ -25,6 +25,9 @@ function Register() {
 		"Primeiro módulo",
 		"Segundo módulo",
 		"Terceiro módulo",
+		"Quarto módulo",
+		"Quinto módulo",
+		"Sexto módulo",
 	];
 
 	return (
