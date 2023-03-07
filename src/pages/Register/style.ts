@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Container = styled.div`
 	min-height: 100vh;
 	padding-top: 60px;
+	padding-bottom: 60px;
 
 	display: flex;
 	flex-direction: column;
@@ -29,6 +30,16 @@ const RegisterHeader = styled.header`
 	button {
 		width: 100px;
 		font-weight: 600;
+	}
+
+	@media (min-width: 1024px) {
+		img {
+			height: 20px;
+		}
+
+		button {
+			font-size: 14px;
+		}
 	}
 `;
 
@@ -62,6 +73,16 @@ const FormTitleDiv = styled.div`
 	p {
 		font-size: 10px;
 		color: var(--grey-1);
+	}
+
+	@media (min-width: 1024px) {
+		h2 {
+			font-size: 20px;
+		}
+
+		p {
+			font-size: 12px;
+		}
 	}
 `;
 

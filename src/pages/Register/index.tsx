@@ -12,6 +12,7 @@ import logo from "../../assets/logo.svg";
 
 import Button from "../../components/Button";
 import Input from "../../components/Input";
+import Select from "../../components/Select";
 
 import { Colors } from "../../utils";
 
@@ -20,6 +21,11 @@ function Register() {
 	function navigatetoLogin(): void {
 		navigate("/");
 	}
+	const moduleOptions = [
+		"Primeiro módulo",
+		"Segundo módulo",
+		"Terceiro módulo",
+	];
 
 	return (
 		<Container>
@@ -54,6 +60,18 @@ function Register() {
 					/>
 					<Input label="Bio" placeholder="Fale sobre você" />
 					<Input label="Contato" placeholder="Opção de contato" />
+					<Select
+						name="modules-select"
+						label="Selecionar módulo"
+						options={moduleOptions}
+					/>
+					<Button
+						background={Colors.colorPrimaryDisable}
+						hoverBackground={Colors.colorPrimary}
+						color="white"
+					>
+						Cadastrar
+					</Button>
 				</FormInputDiv>
 			</RegisterForm>
 		</Container>
