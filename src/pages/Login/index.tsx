@@ -10,6 +10,7 @@ import logo from "../../assets/logo.svg";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 
+import { AxiosRequest } from "../../classes/axios";
 import { Colors } from "../../utils";
 
 function Login() {
@@ -19,10 +20,22 @@ function Login() {
 		navigate("/register");
 	}
 
+	const loginData = {
+		email: "scramignonnarde@gmail.com",
+		password: "1234",
+	};
+
 	return (
 		<Container>
 			<img src={logo} alt="logo" />
-			<LoginForm>
+			<LoginForm
+				onClick={(e) =>
+					AxiosRequest.loginRequest(
+						loginData.email,
+						loginData.password
+					)
+				}
+			>
 				<h2>Login</h2>
 				<Input label="Email" placeholder="Digite seu email aqui" />
 				<Input
