@@ -28,8 +28,6 @@ function Register() {
 		"Segundo módulo",
 		"Terceiro módulo",
 		"Quarto módulo",
-		"Quinto módulo",
-		"Sexto módulo",
 	];
 
 	const registerData = {
