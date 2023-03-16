@@ -14,6 +14,8 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
 
+import { AxiosRequest } from "../../classes/axios";
+import { courseModuleTypes } from "../../interfaces/Login";
 import { Colors } from "../../utils";
 
 function Register() {
@@ -30,6 +32,16 @@ function Register() {
 		"Sexto módulo",
 	];
 
+	const registerData = {
+		name: "Fernando",
+		email: "scramignonnarde6@gmail.com",
+		contact: "someLinkedin2",
+		password: "1234",
+		course_module: courseModuleTypes.FirstModule,
+		bio: "Eu sou o Fernando",
+		avatar_url: "www.url.com",
+	};
+
 	return (
 		<Container>
 			<RegisterHeader>
@@ -43,7 +55,9 @@ function Register() {
 					Voltar
 				</Button>
 			</RegisterHeader>
-			<RegisterForm>
+			<RegisterForm
+				onClick={(e) => AxiosRequest.registerRequest(registerData)}
+			>
 				<FormTitleDiv>
 					<h2>Crie sua conta</h2>
 					<p>Rapido e grátis, vamos nessa</p>
