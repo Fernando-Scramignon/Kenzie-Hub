@@ -18,17 +18,18 @@ import { AxiosRequest } from "../../classes/axios";
 import { courseModuleTypes } from "../../interfaces/Login";
 import { Colors } from "../../utils";
 
+const moduleOptions = [
+    "Primeiro módulo",
+    "Segundo módulo",
+    "Terceiro módulo",
+    "Quarto módulo",
+];
+
 function Register() {
     const navigate: NavigateFunction = useNavigate();
     function navigatetoLogin(): void {
         navigate("/");
     }
-    const moduleOptions = [
-        "Primeiro módulo",
-        "Segundo módulo",
-        "Terceiro módulo",
-        "Quarto módulo",
-    ];
 
     return (
         <Container>
@@ -84,3 +85,5 @@ function Register() {
 }
 
 export default Register;
+
+export { moduleOptions };
