@@ -7,12 +7,16 @@ import {
 } from "./style";
 
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import logo from "../../assets/logo.svg";
 
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
+
+import { userSchema } from "../../schemas";
 
 import { AxiosRequest } from "../../classes/axios";
 import { courseModuleTypes } from "../../interfaces/Login";
@@ -31,6 +35,14 @@ function Register() {
         navigate("/");
     }
 
+    const { register, handleSubmit } = useForm({
+        resolver: yupResolver(userSchema),
+    });
+
+    function onSubmitFunction(data: any): void {
+        console.log(data);
+    }
+
     return (
         <Container>
             <RegisterHeader>
@@ -44,28 +56,44 @@ function Register() {
                     Voltar
                 </Button>
             </RegisterHeader>
-            <RegisterForm
-                onClick={(e) => console.log("Registration goes here")}
-            >
+            <RegisterForm onSubmit={handleSubmit(onSubmitFunction)}>
                 <FormTitleDiv>
                     <h2>Crie sua conta</h2>
                     <p>Rapido e grátis, vamos nessa</p>
                 </FormTitleDiv>
                 <FormInputDiv>
-                    <Input label="Nome" placeholder="Digite aqui seu nome" />
-                    <Input label="Email" placeholder="Digite aqui seu email" />
                     <Input
+                        name="name"
+                        label="Nome"
+                        placeholder="Digite aqui seu nome"
+                    />
+                    <Input
+                        name="email"
+                        label="Email"
+                        placeholder="Digite aqui seu email"
+                    />
+                    <Input
+                        name="password"
                         label="Senha"
                         placeholder="Digite aqui sua senha"
                         type="password"
                     />
                     <Input
+                        name="confirmPassword"
                         label="Confirmar senha"
                         placeholder="Digite sua senha novamente"
                         type="password"
                     />
-                    <Input label="Bio" placeholder="Fale sobre você" />
-                    <Input label="Contato" placeholder="Opção de contato" />
+                    <Input
+                        name="bio"
+                        label="Bio"
+                        placeholder="Fale sobre você"
+                    />
+                    <Input
+                        name="contact"
+                        label="Contato"
+                        placeholder="Opção de contato"
+                    />
                     <Select
                         name="modules-select"
                         label="Selecionar módulo"
