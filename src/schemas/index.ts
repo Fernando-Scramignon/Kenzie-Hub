@@ -17,7 +17,7 @@ const userSchema = yup.object({
     name: yup
         .string()
         .required(requiredMessage("name"))
-        .length(256, maxCharMessage(256)),
+        .max(256, maxCharMessage(256)),
     email: yup
         .string()
         .required(requiredMessage("E-mail"))

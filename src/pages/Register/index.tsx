@@ -35,7 +35,11 @@ function Register() {
         navigate("/");
     }
 
-    const { register, handleSubmit } = useForm({
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
         resolver: yupResolver(userSchema),
     });
 
@@ -66,33 +70,45 @@ function Register() {
                         name="name"
                         label="Nome"
                         placeholder="Digite aqui seu nome"
+                        register={register}
+                        errors={errors}
                     />
                     <Input
                         name="email"
                         label="Email"
                         placeholder="Digite aqui seu email"
+                        register={register}
+                        errors={errors}
                     />
                     <Input
                         name="password"
                         label="Senha"
                         placeholder="Digite aqui sua senha"
                         type="password"
+                        register={register}
+                        errors={errors}
                     />
                     <Input
-                        name="confirmPassword"
+                        name="passwordMatch"
                         label="Confirmar senha"
                         placeholder="Digite sua senha novamente"
                         type="password"
+                        register={register}
+                        errors={errors}
                     />
                     <Input
                         name="bio"
                         label="Bio"
                         placeholder="Fale sobre você"
+                        register={register}
+                        errors={errors}
                     />
                     <Input
                         name="contact"
                         label="Contato"
                         placeholder="Opção de contato"
+                        register={register}
+                        errors={errors}
                     />
                     <Select
                         name="modules-select"
