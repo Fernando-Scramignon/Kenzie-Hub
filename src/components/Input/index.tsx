@@ -91,10 +91,10 @@ function Input({
                     }
                 }}
             >
-                <>
-                    <label htmlFor="input">{label}</label>
-                    {/* place errors here */}
-                </>
+                <label htmlFor="input">{label}</label>
+                <span className="form-errors">
+                    {errors && errors[name]?.message}
+                </span>
             </div>
             {INPUT_TYPES[type]}
         </Container>

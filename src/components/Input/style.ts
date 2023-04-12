@@ -7,6 +7,12 @@ const Container = styled.div`
     flex-direction: column;
     gap: 17px;
 
+    .label-div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     span {
         font-size: 8px;
     }
@@ -35,8 +41,16 @@ const Container = styled.div`
         font-size: 12px;
     }
 
+    .form-errors {
+        font-size: 12px;
+        color: var(--negative);
+    }
+
     @media (min-width: 1024px) {
         label {
+            font-size: 14px;
+        }
+        .form-errors {
             font-size: 14px;
         }
     }
