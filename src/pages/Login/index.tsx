@@ -30,8 +30,13 @@ function Login() {
             <img src={logo} alt="logo" />
             <LoginForm onClick={(e) => console.log("Login goes here")}>
                 <h2>Login</h2>
-                <Input label="Email" placeholder="Digite seu email aqui" />
                 <Input
+                    name="email"
+                    label="Email"
+                    placeholder="Digite seu email aqui"
+                />
+                <Input
+                    name="password"
                     label="Senha"
                     placeholder="Digite sua senha aqui"
                     type="password"
