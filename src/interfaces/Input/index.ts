@@ -1,5 +1,4 @@
-import { ReactNode } from "react";
-import { UseFormRegister, FieldErrors, FieldValues } from "react-hook-form";
+import { UseFormRegister, FieldErrors } from "react-hook-form";
 import { IRegister } from "../Login";
 
 interface IInput {
