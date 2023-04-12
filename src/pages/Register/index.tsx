@@ -17,17 +17,15 @@ import Input from "../../components/Input";
 import Select from "../../components/Select";
 
 import { userSchema } from "../../schemas";
+import { SubmitHandler } from "react-hook-form";
 
 import { AxiosRequest } from "../../classes/axios";
+
+import { IRegister } from "../../interfaces/Login";
+
+import { moduleOptions } from "../../schemas";
 import { courseModuleTypes } from "../../interfaces/Login";
 import { Colors } from "../../utils";
-
-const moduleOptions = [
-    "Primeiro módulo",
-    "Segundo módulo",
-    "Terceiro módulo",
-    "Quarto módulo",
-];
 
 function Register() {
     const navigate: NavigateFunction = useNavigate();
@@ -39,11 +37,11 @@ function Register() {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm({
+    } = useForm<IRegister>({
         resolver: yupResolver(userSchema),
     });
 
-    function onSubmitFunction(data: any): void {
+    async function onSubmitFunction(data: IRegister) {
         console.log(data);
     }
 
@@ -111,9 +109,10 @@ function Register() {
                         errors={errors}
                     />
                     <Select
-                        name="modules-select"
+                        name="course_module"
                         label="Selecionar módulo"
                         options={moduleOptions}
+                        register={register}
                     />
                     <Button
                         background={Colors.colorPrimaryDisable}
