@@ -42,7 +42,13 @@ function Register() {
     });
 
     async function onSubmitFunction(data: IRegister) {
-        AxiosRequest.registerRequest(data);
+        // DON'T FORGET TO FIX THE TYPING
+        const res: any = await AxiosRequest.registerRequest(data);
+        if (res.status == 201) {
+            navigate("/");
+        }
+
+        console.log(res);
     }
 
     return (
