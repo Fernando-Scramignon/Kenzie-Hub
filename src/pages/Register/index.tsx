@@ -42,7 +42,7 @@ function Register() {
     });
 
     async function onSubmitFunction(data: IRegister) {
-        console.log(data);
+        AxiosRequest.registerRequest(data);
     }
 
     return (
