@@ -1,5 +1,5 @@
-import { UseFormRegister, FieldErrors } from "react-hook-form";
-import { IRegister } from "../Login";
+import { UseFormRegister, FieldErrors, Field } from "react-hook-form";
+import { IRegister, ILogin } from "../Login";
 
 interface IInput {
     label: string;
@@ -11,8 +11,8 @@ interface IInput {
         | "password"
         | "course_module"
         | "passwordMatch";
-    register?: UseFormRegister<IRegister>;
-    errors?: FieldErrors<IRegister>;
+    register?: UseFormRegister<any>;
+    errors?: any;
     placeholder: string;
     type?: "default" | "password";
 }
