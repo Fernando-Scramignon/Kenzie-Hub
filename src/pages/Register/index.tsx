@@ -64,8 +64,6 @@ function Register() {
             });
             navigate("/");
         }
-
-        console.log(res);
     }
 
     return (
