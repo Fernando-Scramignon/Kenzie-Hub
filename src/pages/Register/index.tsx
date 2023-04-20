@@ -28,7 +28,7 @@ import { Colors } from "../../utils";
 import { Id, toast } from "react-toastify";
 
 function Register() {
-    const TOAST_CONTAINER_TIME_TO_CLOSE = 3000;
+    const TOAST_CONTAINER_TIME_TO_CLOSE = 2500;
 
     const navigate: NavigateFunction = useNavigate();
     function navigatetoLogin(): void {
@@ -53,6 +53,8 @@ function Register() {
                 render: "Registro falhou",
                 type: "error",
                 isLoading: false,
+                closeButton: true,
+                closeOnClick: true,
                 autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
             });
         } else {
@@ -60,9 +62,11 @@ function Register() {
                 render: "Registro completo",
                 type: "success",
                 isLoading: false,
+                closeButton: true,
+                closeOnClick: true,
                 autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
+                onClose: () => navigate("/"),
             });
-            navigate("/");
         }
     }
 
