@@ -16,5 +16,10 @@ interface IRegister {
     avatar_url: string;
 }
 
-export type { IRegister };
+interface ILogin {
+    email: string;
+    password: string;
+}
+
+export type { IRegister, ILogin };
 export { courseModuleTypes };
