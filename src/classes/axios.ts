@@ -9,7 +9,7 @@ class AxiosRequest {
 
     static REGISTER_PATH: string = "users/";
 
-    static loginRequest(email: string, password: string): void {
+    static async loginRequest(email: string, password: string): Promise<any> {
         const options = {
             method: "POST",
             url: `${this.BASE_URL}${this.LOGIN_PATH}`,
@@ -17,10 +17,12 @@ class AxiosRequest {
             data: { email, password },
         };
 
-        const response: Promise<string | false> = axios
+        const response: Promise<any> = axios
             .request(options)
-            .then((response) => response.data.id)
-            .catch((response) => response);
+            .then((res) => res)
+            .catch((error) => error);
+
+        return response;
     }
 
     static async registerRequest(data: IRegister): Promise<any> {
