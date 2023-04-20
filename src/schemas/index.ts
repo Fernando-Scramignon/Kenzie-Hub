@@ -52,4 +52,12 @@ const userSchema = yup.object({
         .required("Módulo é obrigatório"),
 });
 
-export { userSchema, moduleOptions };
+const userLoginSchema = yup.object({
+    email: yup
+        .string()
+        .max(256, maxCharMessage(256))
+        .required(requiredMessage("E-mail")),
+    password: yup.string().required(requiredMessage("Senha")),
+});
+
+export { userSchema, userLoginSchema, moduleOptions };
