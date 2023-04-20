@@ -18,10 +18,14 @@ import Button from "../../components/Button";
 // interfaces
 import { ILogin } from "../../interfaces/Login";
 
+import { Id, toast } from "react-toastify";
+
 import { AxiosRequest } from "../../classes/axios";
 import { Colors } from "../../utils";
 
 function Login() {
+    const TOAST_CONTAINER_TIME_TO_CLOSE = 3000;
+
     const navigate: NavigateFunction = useNavigate();
 
     function navigateToRegisterPage() {
@@ -37,10 +41,26 @@ function Login() {
     });
 
     async function onSubmitFunction(data: ILogin): Promise<void> {
+        const toastPopUp: Id = toast.loading("Entrando...");
+
         const { email, password } = data;
         const res: any = await AxiosRequest.loginRequest(email, password);
 
-        console.log(res);
+        if (res.status != 200) {
+            toast.update(toastPopUp, {
+                render: "Login falhou",
+                type: "error",
+                isLoading: false,
+                autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
+            });
+        } else {
+            toast.update(toastPopUp, {
+                render: "Login completo",
+                type: "success",
+                isLoading: false,
+                autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
+            });
+        }
     }
 
     return (
