@@ -6,22 +6,32 @@ import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
 import Login from "../src/pages/Login";
 import Register from "./pages/Register";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { GlobalStyle } from "./styles/global";
 
 const router = createBrowserRouter([
-	{
-		path: "/",
-		element: <Login />,
-	},
-	{
-		path: "/register/",
-		element: <Register />,
-	},
+    {
+        path: "/",
+        element: <Login />,
+    },
+    {
+        path: "/register/",
+        element: <Register />,
+    },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-	<React.StrictMode>
-		<GlobalStyle />
-		<RouterProvider router={router} />
-	</React.StrictMode>
+    <React.StrictMode>
+        <GlobalStyle />
+        <RouterProvider router={router} />
+        <ToastContainer
+            pauseOnHover
+            theme="dark"
+            closeOnClick
+            position="top-right"
+            autoClose={3000}
+        />
+    </React.StrictMode>
 );

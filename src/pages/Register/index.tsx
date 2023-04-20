@@ -17,17 +17,19 @@ import Input from "../../components/Input";
 import Select from "../../components/Select";
 
 import { userSchema } from "../../schemas";
-import { SubmitHandler } from "react-hook-form";
 
 import { AxiosRequest } from "../../classes/axios";
 
 import { IRegister } from "../../interfaces/Login";
 
 import { moduleOptions } from "../../schemas";
-import { courseModuleTypes } from "../../interfaces/Login";
 import { Colors } from "../../utils";
 
+import { toast } from "react-toastify";
+
 function Register() {
+    const TOAST_CONTAINER_TIME_TO_CLOSE = 3000;
+
     const navigate: NavigateFunction = useNavigate();
     function navigatetoLogin(): void {
         navigate("/");
@@ -43,8 +45,23 @@ function Register() {
 
     async function onSubmitFunction(data: IRegister) {
         // DON'T FORGET TO FIX THE TYPING
+        const toastPopUp = toast.loading("Registrando");
         const res: any = await AxiosRequest.registerRequest(data);
-        if (res.status == 201) {
+
+        if (res.status != 201) {
+            toast.update(toastPopUp, {
+                render: "Registro falhou",
+                type: "error",
+                isLoading: false,
+                autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
+            });
+        } else {
+            toast.update(toastPopUp, {
+                render: "Registro completo",
+                type: "success",
+                isLoading: false,
+                autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
+            });
             navigate("/");
         }
 
