@@ -25,7 +25,7 @@ import { IRegister } from "../../interfaces/Login";
 import { moduleOptions } from "../../schemas";
 import { Colors } from "../../utils";
 
-import { toast } from "react-toastify";
+import { Id, toast } from "react-toastify";
 
 function Register() {
     const TOAST_CONTAINER_TIME_TO_CLOSE = 3000;
@@ -43,9 +43,9 @@ function Register() {
         resolver: yupResolver(userSchema),
     });
 
-    async function onSubmitFunction(data: IRegister) {
+    async function onSubmitFunction(data: IRegister): Promise<void> {
         // DON'T FORGET TO FIX THE TYPING
-        const toastPopUp = toast.loading("Registrando");
+        const toastPopUp: Id = toast.loading("Registrando");
         const res: any = await AxiosRequest.registerRequest(data);
 
         if (res.status != 201) {
