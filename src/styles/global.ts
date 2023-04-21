@@ -22,6 +22,10 @@ const GlobalStyle = createGlobalStyle`
         font-family: "Inter", sans-serif;
     }
 
+    body {
+        background-color: var(--grey-4);
+    }
+
     input {
         outline: none;
         border: none;

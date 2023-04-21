@@ -6,8 +6,9 @@ import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
 import Login from "../src/pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
+import ErrorPage from "./pages/ErrorPage";
 
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { GlobalStyle } from "./styles/global";
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Home />,
+        errorElement: <ErrorPage />,
     },
     {
         path: "/login/",
