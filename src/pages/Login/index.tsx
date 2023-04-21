@@ -54,6 +54,9 @@ function Login() {
                 autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
             });
         } else {
+            const token: string = res.data.access;
+            localStorage.setItem("token", token);
+
             toast.update(toastPopUp, {
                 render: "Login completo",
                 type: "success",
