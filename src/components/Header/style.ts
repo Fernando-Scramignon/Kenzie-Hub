@@ -25,6 +25,18 @@ const Container = styled.div`
         width: 60px;
         border-radius: 6px;
     }
+
+    @media (min-width: 1024px) {
+        padding: 0px 18%;
+
+        #home-logo {
+            height: 20px;
+        }
+
+        #home-logout {
+            width: 80px;
+        }
+    }
 `;
 
 export { Container };
