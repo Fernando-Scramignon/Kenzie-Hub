@@ -12,6 +12,7 @@ function Header() {
             <Button
                 id="home-logout"
                 background={Colors.grey3}
+                hoverBackground={Colors.grey2}
                 color={Colors.grey0}
             >
                 Sair
