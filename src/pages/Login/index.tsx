@@ -24,7 +24,7 @@ import { AxiosRequest } from "../../classes/axios";
 import { Colors } from "../../utils";
 
 function Login() {
-    const TOAST_CONTAINER_TIME_TO_CLOSE = 2000;
+    const TOAST_CONTAINER_TIME_TO_CLOSE = 1500;
 
     const navigate: NavigateFunction = useNavigate();
 
@@ -61,7 +61,7 @@ function Login() {
                 autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
                 closeOnClick: true,
                 closeButton: true,
-                onClose: () => navigate("/register"),
+                onClose: () => navigate("/"),
             });
         }
     }
