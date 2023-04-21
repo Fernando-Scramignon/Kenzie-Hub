@@ -65,7 +65,7 @@ function Register() {
                 closeButton: true,
                 closeOnClick: true,
                 autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
-                onClose: () => navigate("/"),
+                onClose: () => navigate("/login/"),
             });
         }
     }
