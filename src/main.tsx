@@ -5,6 +5,7 @@ import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
 
 import Login from "../src/pages/Login";
 import Register from "./pages/Register";
+import Home from "./pages/Home";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,6 +15,10 @@ import { GlobalStyle } from "./styles/global";
 const router = createBrowserRouter([
     {
         path: "/",
+        element: <Home />,
+    },
+    {
+        path: "/login/",
         element: <Login />,
     },
     {
