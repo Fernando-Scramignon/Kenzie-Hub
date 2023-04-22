@@ -31,7 +31,7 @@ function Home() {
     return (
         <Container>
             <Header />
-            <Info />
+            <Info user={user} />
         </Container>
     );
 }
