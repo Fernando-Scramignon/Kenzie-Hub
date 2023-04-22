@@ -32,7 +32,7 @@ function Register() {
 
     const navigate: NavigateFunction = useNavigate();
     function navigatetoLogin(): void {
-        navigate("/");
+        navigate("/login/");
     }
 
     const {
