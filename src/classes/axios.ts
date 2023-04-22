@@ -8,11 +8,11 @@ class AxiosRequest {
 
     static LOGIN_PATH: string = "login/";
 
-    static GET_USER_PATH: string = "users/";
+    static GET_USER_PATH: string = "user/";
 
     static REGISTER_PATH: string = "users/";
 
-    static async getUser(token: string): Promise<IUser> {
+    static async getUser(token: string): Promise<any> {
         const options = {
             method: "GET",
             url: `${this.BASE_URL}${this.GET_USER_PATH}`,
