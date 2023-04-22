@@ -1,6 +1,8 @@
 import { Container } from "./style";
 
 import Header from "../../components/Header";
+import Info from "../../components/Info";
+
 import { useEffect, useState } from "react";
 import { IUser } from "../../interfaces/User";
 import { useNavigate, NavigateFunction } from "react-router-dom";
@@ -29,10 +31,7 @@ function Home() {
     return (
         <Container>
             <Header />
-            <h1 onClick={() => console.log(user)}>
-                {user ? user.name : "..."}
-            </h1>
-            <span>under construction</span>
+            <Info />
         </Container>
     );
 }
