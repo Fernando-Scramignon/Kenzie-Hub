@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { fadeIn } from "../../styles/animations";
 
 const Container = styled.div`
     width: 100%;
@@ -13,6 +14,7 @@ const Container = styled.div`
     background: var(--grey-4);
     border-bottom: 2px solid var(--grey-3);
 
+    animation: ${fadeIn} 0.6s;
     #home-logo {
         height: 18px;
     }
