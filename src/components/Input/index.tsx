@@ -83,14 +83,7 @@ function Input({
 
     return (
         <Container>
-            <div
-                className="label-div"
-                onClick={() => {
-                    if (errors) {
-                        console.log(errors);
-                    }
-                }}
-            >
+            <div className="label-div">
                 <label htmlFor="input">{label}</label>
                 <span className="form-errors">
                     {errors && errors[name]?.message}
