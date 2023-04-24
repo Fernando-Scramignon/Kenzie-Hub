@@ -24,7 +24,7 @@ import { AxiosRequest } from "../../classes/axios";
 import { Colors } from "../../utils";
 
 function Login() {
-    const TOAST_CONTAINER_TIME_TO_CLOSE = 1500;
+    const TOAST_CONTAINER_TIME_TO_CLOSE = 1000;
 
     const navigate: NavigateFunction = useNavigate();
 
@@ -51,6 +51,9 @@ function Login() {
                 render: "Dados incorretos",
                 type: "error",
                 isLoading: false,
+                pauseOnHover: true,
+                closeButton: true,
+                closeOnClick: true,
                 autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
             });
         } else {
@@ -61,9 +64,10 @@ function Login() {
                 render: "Login completo",
                 type: "success",
                 isLoading: false,
-                autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
+                pauseOnHover: true,
                 closeOnClick: true,
                 closeButton: true,
+                autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
                 onClose: () => navigate("/"),
             });
         }

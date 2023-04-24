@@ -12,6 +12,16 @@ const GlobalStyle = createGlobalStyle`
         --grey-0: #F8F9FA;
         --success: #3FE864;
         --negative: #E83F5B;
+
+        /* toastify */
+        --toastify-color-dark: var(--grey-2);
+        --toastify-color-success: var(--success);
+        --toastify-icon-color-success: var(--success);
+        --toastify-color-error: var(--negative);
+        --toastify-icon-color-error: var(--negative);
+
+        --toastify-font-family: "Inter", sans-serif;
+        --toastify-text-color-dark: var(--grey-0);
     }
     
     * {
@@ -24,6 +34,9 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         background-color: var(--grey-4);
+        .Toastify__toast-body {
+            font-weight: 700;
+        }
     }
 
     input {
