@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { appearFromLeft, appearFromRight } from "../../styles/animations";
 
 const Container = styled.div`
     width: 100%;
@@ -15,6 +16,8 @@ const Container = styled.div`
         font-family: "Inter", sans-serif;
 
         color: var(--grey-0);
+
+        animation: ${appearFromLeft} 0.7s;
     }
 
     span {
@@ -23,6 +26,8 @@ const Container = styled.div`
         font-family: "Inter", sans-serif;
 
         color: var(--grey-1);
+
+        animation: ${appearFromRight} 0.7s;
     }
 
     @media (min-width: 1024px) {
