@@ -11,4 +11,27 @@ to {
 
 `;
 
-export { fadeIn };
+const appearFromLeft: Keyframes = keyframes`
+from {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+to {
+    opacity: 1;
+    transform: translateX(0px);
+}
+`;
+
+const appearFromBottom: Keyframes = keyframes`
+from {
+    opacity: 0;
+    transform: translateY(50px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0px);
+}
+`;
+
+export { fadeIn, appearFromLeft, appearFromBottom };
