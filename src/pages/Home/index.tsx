@@ -2,9 +2,10 @@ import { Container, TechSection } from "./style";
 
 import Header from "../../components/Header";
 import Info from "../../components/Info";
+import Tech from "../../components/Tech";
 
 import { useEffect, useState } from "react";
-import { IUser } from "../../interfaces/User";
+import { ITech, IUser } from "../../interfaces/User";
 import { useNavigate, NavigateFunction } from "react-router-dom";
 
 import { AxiosRequest } from "../../classes/axios";
@@ -37,7 +38,13 @@ function Home() {
                     <h3>Tecnologias</h3>
                     <span id="add-tech-btn">+</span>
                 </div>
-                <div className="tech-list"></div>
+                {user?.techs.length != 0 && (
+                    <div className="tech-list">
+                        {user?.techs.map((tech: ITech) => (
+                            <Tech key={tech.id} tech={tech} />
+                        ))}
+                    </div>
+                )}
             </TechSection>
         </Container>
     );

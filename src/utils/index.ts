@@ -24,6 +24,7 @@ const MODULES_MAP: any = {
     "Segundo módulo": "Segundo módulo (frontend avançado)",
     "Terceiro módulo": "Terceiro módulo (introdução ao backend)",
     "Quarto módulo": "Quarto módulo (backend avançado)",
+    "Não especificado": "Módulo não especificado",
 };
 
 export { Colors, MODULES_MAP };

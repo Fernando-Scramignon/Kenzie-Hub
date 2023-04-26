@@ -48,10 +48,15 @@ const TechSection = styled.div`
     }
 
     .tech-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
         background: var(--grey-3);
+
         width: 100%;
-        height: 300px;
         border-radius: 4px;
+        padding: 22px 8px;
     }
 
     @media (min-width: 1024px) {
