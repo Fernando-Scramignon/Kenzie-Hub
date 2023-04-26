@@ -1,4 +1,4 @@
-import { Container } from "./style";
+import { Container, TechSection } from "./style";
 
 import Header from "../../components/Header";
 import Info from "../../components/Info";
@@ -32,6 +32,13 @@ function Home() {
         <Container>
             <Header />
             <Info user={user} />
+            <TechSection>
+                <div className="tech-title">
+                    <h3>Tecnologias</h3>
+                    <span id="add-tech-btn">+</span>
+                </div>
+                <div className="tech-list"></div>
+            </TechSection>
         </Container>
     );
 }
