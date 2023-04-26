@@ -5,7 +5,7 @@ import { MODULES_MAP } from "../../utils";
 function Info({ user }: IInfoProps) {
     return (
         <Container>
-            <h1>{user ? user.name : "..."}</h1>
+            <h1>{user ? `Olá, ${user.name}` : "..."}</h1>
             <span>{user ? MODULES_MAP[user.course_module] : "..."}</span>
         </Container>
     );
