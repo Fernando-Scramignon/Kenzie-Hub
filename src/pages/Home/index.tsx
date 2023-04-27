@@ -3,6 +3,7 @@ import { Container, TechSection } from "./style";
 import Header from "../../components/Header";
 import Info from "../../components/Info";
 import Tech from "../../components/Tech";
+import { RegisterTechModal } from "../../components/RegisterTechModal";
 
 import { useEffect, useState } from "react";
 import { ITech, IUser } from "../../interfaces/User";
@@ -46,6 +47,7 @@ function Home() {
                     </div>
                 )}
             </TechSection>
+            {<RegisterTechModal />}
         </Container>
     );
 }
