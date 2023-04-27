@@ -1,4 +1,5 @@
 import { Container } from "./style";
+import Input from "../Input";
 
 function RegisterTechModal() {
     return (
@@ -7,9 +8,15 @@ function RegisterTechModal() {
                 <p>Cadastrar Tecnologia</p>
                 <span>X</span>
             </div>
-            <div className="register-tech-body"></div>
+            <div className="register-tech-body">
+                <Input
+                    label="Nome"
+                    name="tech"
+                    placeholder="Nome da tecnologia"
+                />
+            </div>
         </Container>
     );
 }
 
-export { RegisterTechModal };
+export default RegisterTechModal;
