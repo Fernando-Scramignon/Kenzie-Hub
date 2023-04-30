@@ -4,4 +4,9 @@ interface ITechProps {
     tech: ITech;
 }
 
-export type { ITechProps };
+interface IRegisterTechModal {
+    showTechCreation: boolean;
+    alternateTechCreation(): void;
+}
+
+export type { ITechProps, IRegisterTechModal };

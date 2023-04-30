@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { fadeIn } from "../../styles/animations";
 
 const Container = styled.div`
     width: 90%;
@@ -12,6 +13,7 @@ const Container = styled.div`
     z-index: 10;
 
     border-radius: 4px;
+    /* animation: ${fadeIn} 0.5s; */
 
     margin-top: 150px;
     .register-tech-header {
@@ -61,4 +63,13 @@ const Container = styled.div`
     }
 `;
 
-export { Container };
+const Backdrop = styled.div`
+    z-index: 5;
+    min-height: 100vh;
+    min-width: 100vw;
+    background: var(--grey-4);
+    opacity: 0.5;
+    position: fixed;
+`;
+
+export { Container, Backdrop };
