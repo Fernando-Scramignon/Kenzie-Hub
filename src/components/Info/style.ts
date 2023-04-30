@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { appearFromLeft, appearFromRight } from "../../styles/animations";
+import {
+    appearFromBottom,
+    appearFromLeft,
+    appearFromRight,
+    fadeIn,
+} from "../../styles/animations";
 
 const Container = styled.div`
     width: 100%;
@@ -17,7 +22,7 @@ const Container = styled.div`
 
         color: var(--grey-0);
 
-        animation: ${appearFromLeft} 0.7s;
+        animation: ${fadeIn} 0.7s;
     }
 
     span {
@@ -27,7 +32,7 @@ const Container = styled.div`
 
         color: var(--grey-1);
 
-        animation: ${appearFromRight} 0.7s;
+        animation: ${appearFromBottom} 1s;
     }
 
     @media (min-width: 1024px) {
@@ -37,10 +42,12 @@ const Container = styled.div`
 
         h1 {
             font-size: 20px;
+            animation: ${appearFromLeft} 0.7s;
         }
 
         span {
             font-size: 14px;
+            animation: ${appearFromRight} 0.7s;
         }
     }
 `;
