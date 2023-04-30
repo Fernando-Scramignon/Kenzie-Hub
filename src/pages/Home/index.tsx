@@ -1,5 +1,7 @@
 import { Container, TechSection } from "./style";
 
+import { CSSTransition } from "react-transition-group";
+
 import Header from "../../components/Header";
 import Info from "../../components/Info";
 import Tech from "../../components/Tech";
@@ -13,11 +15,11 @@ import { AxiosRequest } from "../../classes/axios";
 
 function Home() {
     const [user, setUser] = useState<IUser>();
-    const [isTechCreationOpen, setIsTechCreationOpen] = useState<boolean>();
+    const [showTechCreation, setShowTechCreation] = useState<boolean>(false);
     const navigate: NavigateFunction = useNavigate();
 
-    function alternateIsTechCreationOpen(): void {
-        setIsTechCreationOpen(!isTechCreationOpen);
+    function alternateShowTechCreation(): void {
+        setShowTechCreation(!showTechCreation);
     }
 
     useEffect(() => {
@@ -42,10 +44,7 @@ function Home() {
             <TechSection>
                 <div className="tech-title">
                     <h3>Tecnologias</h3>
-                    <span
-                        id="add-tech-btn"
-                        onClick={alternateIsTechCreationOpen}
-                    >
+                    <span id="add-tech-btn" onClick={alternateShowTechCreation}>
                         +
                     </span>
                 </div>
@@ -57,7 +56,10 @@ function Home() {
                     </div>
                 )}
             </TechSection>
-            {isTechCreationOpen && <RegisterTechModal />}
+            <RegisterTechModal
+                showTechCreation={showTechCreation}
+                alternateTechCreation={alternateShowTechCreation}
+            />
         </Container>
     );
 }
