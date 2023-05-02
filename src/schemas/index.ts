@@ -60,4 +60,10 @@ const userLoginSchema = yup.object({
     password: yup.string().required(requiredMessage("Senha")),
 });
 
-export { userSchema, userLoginSchema, moduleOptions };
+export {
+    userSchema,
+    userLoginSchema,
+    moduleOptions,
+    requiredMessage,
+    maxCharMessage,
+};
