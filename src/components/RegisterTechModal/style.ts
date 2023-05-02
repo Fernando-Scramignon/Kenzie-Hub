@@ -4,7 +4,6 @@ import { fadeIn } from "../../styles/animations";
 const Container = styled.div`
     width: 90%;
     max-width: 370px;
-    height: 250px;
 
     background: var(--grey-3);
     box-shadow: 0px 4px 40px -10px #00000040;
@@ -49,16 +48,13 @@ const Container = styled.div`
     .register-tech-body {
         display: flex;
         flex-direction: column;
+        gap: 25px;
         padding: 20px 17px 25px;
 
         label {
             font-weight: 400;
             font-size: 12px;
             color: var(--grey-0);
-        }
-
-        .default-input {
-            border: 1px solid var(--grey-0);
         }
     }
 `;

@@ -1,7 +1,11 @@
 import { Container, Backdrop } from "./style";
 import Input from "../Input";
+import Select from "../Select";
 import { CSSTransition } from "react-transition-group";
 import { IRegisterTechModal } from "../../interfaces/Tech";
+import { STATUS_OPTIONS } from "../../schemas/tech.schemas";
+import Button from "../Button";
+import { Colors } from "../../utils";
 
 function RegisterTechModal({
     showTechCreation,
@@ -24,9 +28,21 @@ function RegisterTechModal({
                     <div className="register-tech-body">
                         <Input
                             label="Nome"
-                            name="tech"
+                            name="title"
                             placeholder="Nome da tecnologia"
                         />
+                        <Select
+                            label="Selecionar status"
+                            name="status"
+                            options={STATUS_OPTIONS}
+                        />
+                        <Button
+                            background={Colors.colorPrimary}
+                            color={Colors.white}
+                            hoverBackground={Colors.colorPrimary50}
+                        >
+                            Cadastrar tecnologia
+                        </Button>
                     </div>
                 </Container>
                 <Backdrop />
