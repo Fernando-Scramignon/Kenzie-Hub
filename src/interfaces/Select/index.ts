@@ -4,7 +4,7 @@ interface ISelect {
     label: string;
     name: string;
     options: Array<string>;
-    register: UseFormRegister<any>;
+    register?: UseFormRegister<any>;
 }
 
 export type { ISelect };
