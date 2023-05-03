@@ -2,6 +2,7 @@ import axios from "axios";
 
 import { IRegister } from "../interfaces/Login";
 import { IUser } from "../interfaces/User";
+import { IRegisterTech } from "../interfaces/Tech";
 
 class AxiosRequest {
     static BASE_URL = "http://localhost:8000/api/";
@@ -11,6 +12,8 @@ class AxiosRequest {
     static GET_USER_PATH: string = "user/";
 
     static REGISTER_PATH: string = "users/";
+
+    static TECH_PATH: string = "techs/";
 
     static async getUser(token: string): Promise<any> {
         const options = {
@@ -51,6 +54,25 @@ class AxiosRequest {
             method: "POST",
             url: `${this.BASE_URL}${this.REGISTER_PATH}`,
             headers: { "Content-Type": "application/json" },
+            data,
+        };
+
+        const response: Promise<any> = axios
+            .request(options)
+            .then((res) => res)
+            .catch((error) => error);
+
+        return response;
+    }
+
+    static async registerTech(data: IRegisterTech): Promise<any> {
+        const options = {
+            method: "POST",
+            url: `${this.BASE_URL}${this.TECH_PATH}`,
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
             data,
         };
 
