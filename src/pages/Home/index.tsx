@@ -22,19 +22,22 @@ function Home() {
         setShowTechCreation(!showTechCreation);
     }
 
-    useEffect(() => {
+    async function getUpdateUser() {
         const token: string | null = localStorage.getItem("token");
         if (!token) {
             navigate("/login/");
             return;
         }
-
         AxiosRequest.getUser(token)
             .then((res) => setUser(res.data[0]))
             .catch((err) => {
                 console.error(err);
                 navigate("/login/");
             });
+    }
+
+    useEffect(() => {
+        getUpdateUser();
     }, []);
 
     return (
@@ -57,6 +60,7 @@ function Home() {
                 )}
             </TechSection>
             <RegisterTechModal
+                updateUserFunction={getUpdateUser}
                 showTechCreation={showTechCreation}
                 alternateTechCreation={alternateShowTechCreation}
             />
