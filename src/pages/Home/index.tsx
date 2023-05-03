@@ -7,8 +7,9 @@ import Info from "../../components/Info";
 import Tech from "../../components/Tech";
 import RegisterTechModal from "../../components/RegisterTechModal";
 
-import { useEffect, useState } from "react";
 import { ITech, IUser } from "../../interfaces/User";
+
+import { useEffect, useState } from "react";
 import { useNavigate, NavigateFunction } from "react-router-dom";
 
 import { AxiosRequest } from "../../classes/axios";

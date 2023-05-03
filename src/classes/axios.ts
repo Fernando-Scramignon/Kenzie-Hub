@@ -1,7 +1,6 @@
 import axios from "axios";
 
 import { IRegister } from "../interfaces/Login";
-import { IUser } from "../interfaces/User";
 import { IRegisterTech } from "../interfaces/Tech";
 
 class AxiosRequest {

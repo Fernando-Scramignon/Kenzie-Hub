@@ -1,14 +1,17 @@
 import { Container, Backdrop } from "./style";
-import Input from "../Input";
-import Select from "../Select";
 import { CSSTransition } from "react-transition-group";
 import { IRegisterTechModal } from "../../interfaces/Tech";
 import { IRegisterTech } from "../../interfaces/Tech";
-import { STATUS_OPTIONS, techSchema } from "../../schemas/tech.schemas";
+
+import Input from "../Input";
+import Select from "../Select";
 import Button from "../Button";
-import { Colors } from "../../utils";
-import { yupResolver } from "@hookform/resolvers/yup";
+
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { STATUS_OPTIONS, techSchema } from "../../schemas/tech.schemas";
+
+import { Colors } from "../../utils";
 import { AxiosRequest } from "../../classes/axios";
 
 function RegisterTechModal({
