@@ -1,16 +1,23 @@
 import { Container, Backdrop } from "./style";
+
+// used for animating the modal
 import { CSSTransition } from "react-transition-group";
+
+// interfaces
 import { IRegisterTechModal } from "../../interfaces/Tech";
 import { IRegisterTech } from "../../interfaces/Tech";
 
+// components
 import Input from "../Input";
 import Select from "../Select";
 import Button from "../Button";
 
+// yup validation
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { STATUS_OPTIONS, techSchema } from "../../schemas/tech.schemas";
 
+// classes
 import { Colors } from "../../utils";
 import { AxiosRequest } from "../../classes/axios";
 
