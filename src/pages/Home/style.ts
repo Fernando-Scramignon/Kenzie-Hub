@@ -8,6 +8,8 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    padding-bottom: 5vh;
 `;
 
 const TechSection = styled.div`
