@@ -21,11 +21,16 @@ import { STATUS_OPTIONS, techSchema } from "../../schemas/tech.schemas";
 import { Colors } from "../../utils";
 import { AxiosRequest } from "../../classes/axios";
 
+import { Id, toast } from "react-toastify";
+import { useEffect } from "react";
+
 function RegisterTechModal({
     showTechCreation,
     alternateTechCreation,
     updateUserFunction,
 }: IRegisterTechModal) {
+    const TOAST_CONTAINER_TIME_TO_CLOSE: number = 3000;
+
     const {
         register,
         handleSubmit,
@@ -35,9 +40,38 @@ function RegisterTechModal({
     });
 
     async function onSubmitFunction(data: IRegisterTech): Promise<void> {
-        const response: Promise<any> = await AxiosRequest.registerTech(data);
-        updateUserFunction();
-        alternateTechCreation();
+        // fix this too
+        const toastPopUp: Id = toast.loading("Registrando...");
+        const response: any = await AxiosRequest.registerTech(data);
+
+        if (response.status != 201) {
+            let message: string = "Falha na criação";
+
+            if (response.response.data.title.includes("already registered"))
+                message = "Você já registrou essa tecnologia";
+
+            toast.update(toastPopUp, {
+                render: message,
+                type: "error",
+                isLoading: false,
+                pauseOnHover: true,
+                closeButton: true,
+                closeOnClick: true,
+                autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
+            });
+        } else {
+            toast.update(toastPopUp, {
+                render: "Tecnologia criada",
+                type: "success",
+                isLoading: false,
+                pauseOnHover: true,
+                closeOnClick: true,
+                closeButton: true,
+                autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
+            });
+            updateUserFunction();
+            alternateTechCreation();
+        }
     }
 
     return (
