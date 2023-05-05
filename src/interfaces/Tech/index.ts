@@ -16,7 +16,7 @@ interface IRegisterTechModal {
 }
 
 interface IEditTechModal {
-    techTitle: string;
+    tech: ITech;
     showTechEdition: boolean;
     alternateTechEdition(): void;
 }

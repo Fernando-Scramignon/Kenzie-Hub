@@ -11,7 +11,7 @@ import { moduleOptions } from "../../schemas";
 
 function EditTechModal({
     alternateTechEdition,
-    techTitle,
+    tech,
     showTechEdition,
 }: IEditTechModal) {
     return (
@@ -33,7 +33,7 @@ function EditTechModal({
                             <Input
                                 label="Nome do projeto"
                                 name="techTitle"
-                                placeholder={techTitle}
+                                placeholder={tech.title}
                             />
                             <Select
                                 label="Status"

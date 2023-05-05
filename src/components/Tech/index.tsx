@@ -19,7 +19,7 @@ function Tech({ tech }: ITechProps) {
                 <p className="tech-level">{tech && tech.status}</p>
             </Container>
             <EditTechModal
-                techTitle={tech.title}
+                tech={tech}
                 showTechEdition={showTechEdition}
                 alternateTechEdition={alternateShowTechEdition}
             />
