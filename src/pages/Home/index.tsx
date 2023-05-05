@@ -13,14 +13,20 @@ import { useEffect, useState } from "react";
 import { useNavigate, NavigateFunction } from "react-router-dom";
 
 import { AxiosRequest } from "../../classes/axios";
+import EditTechModal from "../../components/EditTechModal";
 
 function Home() {
     const [user, setUser] = useState<IUser>();
     const [showTechCreation, setShowTechCreation] = useState<boolean>(false);
+    const [showTechEdition, setShowTechEdition] = useState<boolean>(false);
     const navigate: NavigateFunction = useNavigate();
 
     function alternateShowTechCreation(): void {
         setShowTechCreation(!showTechCreation);
+    }
+
+    function alternateShowTechEdition(): void {
+        setShowTechEdition(!showTechEdition);
     }
 
     async function getUpdateUser() {
@@ -65,6 +71,7 @@ function Home() {
                 showTechCreation={showTechCreation}
                 alternateTechCreation={alternateShowTechCreation}
             />
+            {/* <EditTechModal /> */}
         </Container>
     );
 }
