@@ -15,4 +15,8 @@ interface IRegisterTechModal {
     updateUserFunction(): void;
 }
 
-export type { ITechProps, IRegisterTechModal, IRegisterTech };
+interface IEditTechModal {
+    alternateTechEdition(): void;
+}
+
+export type { ITechProps, IRegisterTechModal, IRegisterTech, IEditTechModal };

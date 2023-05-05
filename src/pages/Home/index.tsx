@@ -71,7 +71,11 @@ function Home() {
                 showTechCreation={showTechCreation}
                 alternateTechCreation={alternateShowTechCreation}
             />
-            <EditTechModal />
+            {showTechEdition && (
+                <EditTechModal
+                    alternateTechEdition={alternateShowTechEdition}
+                />
+            )}
         </Container>
     );
 }
