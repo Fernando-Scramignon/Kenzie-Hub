@@ -13,9 +13,16 @@ const Container = styled.div`
 `;
 
 const EditTechHeader = styled.div`
-    /* font */
-    font-weight: 700;
-    font-size: 12px;
+    h3 {
+        font-weight: 700;
+        font-size: 12px;
+    }
+
+    span {
+        color: var(--grey-1);
+        font-family: "Nunito", sans-serif;
+        font-size: 12px;
+    }
 
     /* color */
     background: var(--grey-2);
@@ -29,6 +36,7 @@ const EditTechHeader = styled.div`
     /* flex */
     display: flex;
     justify-content: space-between;
+    align-items: center;
 `;
 
 const EditTechBody = styled.div`
