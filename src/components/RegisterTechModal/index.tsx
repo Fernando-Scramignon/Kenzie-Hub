@@ -85,7 +85,7 @@ function RegisterTechModal({
             <>
                 <Container className="register-tech">
                     <div className="register-tech-header">
-                        <p>Cadastrar Tecnologia</p>
+                        <h3>Cadastrar Tecnologia</h3>
                         <span onClick={alternateTechCreation}>X</span>
                     </div>
                     <form

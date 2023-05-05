@@ -43,6 +43,16 @@ const Container = styled.div`
                 color: var(--grey-0);
             }
         }
+
+        @media (min-width: 1024px) {
+            h3 {
+                font-size: 14px;
+            }
+
+            span {
+                font-size: 16px;
+            }
+        }
     }
 
     .register-tech-body {
