@@ -114,7 +114,7 @@ function RegisterTechModal({
                         </Button>
                     </form>
                 </Container>
-                <Backdrop />
+                <Backdrop onClick={alternateTechCreation} />
             </>
         </CSSTransition>
     );
