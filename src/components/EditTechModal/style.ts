@@ -32,18 +32,6 @@ const Container = styled.div`
 `;
 
 const EditTechHeader = styled.div`
-    h3 {
-        font-weight: 700;
-        font-size: 12px;
-    }
-
-    span {
-        color: var(--grey-1);
-        font-family: "Nunito", sans-serif;
-        font-size: 12px;
-        cursor: pointer;
-    }
-
     /* color */
     background: var(--grey-2);
     color: var(--grey-0);
@@ -57,12 +45,39 @@ const EditTechHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    h3 {
+        font-weight: 700;
+        font-size: 12px;
+    }
+
+    span {
+        color: var(--grey-1);
+        font-family: "Nunito", sans-serif;
+        font-size: 12px;
+        cursor: pointer;
+
+        transition: 400ms;
+        &:hover {
+            color: var(--grey-0);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        h3 {
+            font-size: 14px;
+        }
+
+        span {
+            font-size: 16px;
+        }
+    }
 `;
 
 const EditTechBody = styled.div`
     /* size */
     min-height: 200px;
-    padding: 0px 18px;
+    padding: 22px 18px 0px;
     border-radius: 0px 0px 4px 4px;
 
     /* color */
@@ -71,7 +86,31 @@ const EditTechBody = styled.div`
     /* flex */
     display: flex;
     flex-direction: column;
-    gap: 20px;
+
+    .input-div {
+        /* flex */
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        /* size */
+        padding-bottom: 16px;
+
+        label {
+            font-size: 12px;
+        }
+    }
+
+    .button-div {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 26px;
+        gap: 18px;
+
+        #delete-tech-button {
+            width: 40%;
+        }
+    }
 `;
 
 export { Container, EditTechHeader, EditTechBody, Backdrop };
