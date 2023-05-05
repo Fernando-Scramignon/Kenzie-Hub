@@ -1,12 +1,30 @@
 import styled from "styled-components";
 
+const Backdrop = styled.div`
+    /* size */
+    min-height: 100vh;
+    min-width: 100vw;
+
+    /* color */
+    background: var(--grey-4);
+    opacity: 0.5;
+
+    /* position */
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 5;
+`;
+
 const Container = styled.div`
     /* size */
-    min-height: 270px;
     width: 90vw;
+    max-width: 370px;
 
     /* position */
     position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
     top: 150px;
     z-index: 10;
 
@@ -23,6 +41,7 @@ const EditTechHeader = styled.div`
         color: var(--grey-1);
         font-family: "Nunito", sans-serif;
         font-size: 12px;
+        cursor: pointer;
     }
 
     /* color */
@@ -55,4 +74,4 @@ const EditTechBody = styled.div`
     gap: 20px;
 `;
 
-export { Container, EditTechHeader, EditTechBody };
+export { Container, EditTechHeader, EditTechBody, Backdrop };
