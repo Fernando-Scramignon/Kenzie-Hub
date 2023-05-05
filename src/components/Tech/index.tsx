@@ -1,12 +1,30 @@
-import { ITechProps } from "../../interfaces/Tech";
 import { Container } from "./style";
 
+import { ITechProps } from "../../interfaces/Tech";
+import EditTechModal from "../EditTechModal";
+
+import { useState } from "react";
+
 function Tech({ tech }: ITechProps) {
+    const [showTechEdition, setShowTechEdition] = useState<boolean>(false);
+
+    function alternateShowTechEdition(): void {
+        setShowTechEdition(!showTechEdition);
+    }
+
     return (
-        <Container>
-            <h4 className="tech-name">{tech && tech.title}</h4>
-            <p className="tech-level">{tech && tech.status}</p>
-        </Container>
+        <>
+            <Container onClick={alternateShowTechEdition}>
+                <h4 className="tech-name">{tech && tech.title}</h4>
+                <p className="tech-level">{tech && tech.status}</p>
+            </Container>
+            {showTechEdition && (
+                <EditTechModal
+                    techTitle={tech.title}
+                    alternateTechEdition={alternateShowTechEdition}
+                />
+            )}
+        </>
     );
 }
 

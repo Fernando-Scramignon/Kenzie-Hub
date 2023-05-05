@@ -8,6 +8,7 @@ const Container = styled.div`
     /* position */
     position: fixed;
     top: 150px;
+    z-index: 10;
 
     box-shadow: 0px 4px 32px -8px #00000040;
 `;
