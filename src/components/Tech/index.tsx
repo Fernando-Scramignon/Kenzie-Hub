@@ -18,12 +18,11 @@ function Tech({ tech }: ITechProps) {
                 <h4 className="tech-name">{tech && tech.title}</h4>
                 <p className="tech-level">{tech && tech.status}</p>
             </Container>
-            {showTechEdition && (
-                <EditTechModal
-                    techTitle={tech.title}
-                    alternateTechEdition={alternateShowTechEdition}
-                />
-            )}
+            <EditTechModal
+                techTitle={tech.title}
+                showTechEdition={showTechEdition}
+                alternateTechEdition={alternateShowTechEdition}
+            />
         </>
     );
 }
