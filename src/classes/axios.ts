@@ -82,6 +82,23 @@ class AxiosRequest {
 
         return response;
     }
+
+    static async deleteTech(techId: string) {
+        const options = {
+            method: "DELETE",
+            url: `${this.BASE_URL}${this.TECH_PATH}${techId}/`,
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+        };
+        const response: Promise<any> = axios
+            .request(options)
+            .then((res) => res)
+            .catch((error) => error);
+
+        return response;
+    }
 }
 
 export { AxiosRequest };

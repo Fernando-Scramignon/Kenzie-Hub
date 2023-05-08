@@ -6,6 +6,7 @@ import Select from "../Select";
 import Input from "../Input";
 import Button from "../Button";
 
+import { AxiosRequest } from "../../classes/axios";
 import { Colors } from "../../utils";
 import { moduleOptions } from "../../schemas";
 
@@ -14,6 +15,10 @@ function EditTechModal({
     tech,
     showTechEdition,
 }: IEditTechModal) {
+    async function techDeletionHandler(id: string) {
+        const response: any = await AxiosRequest.deleteTech(id);
+    }
+
     return (
         <CSSTransition
             in={showTechEdition}
@@ -54,6 +59,9 @@ function EditTechModal({
                                 id="delete-tech-button"
                                 background={Colors.grey1}
                                 hoverBackground={Colors.grey2}
+                                clickFunction={() =>
+                                    techDeletionHandler(tech.id)
+                                }
                             >
                                 Excluir
                             </Button>
