@@ -5,34 +5,17 @@ import Info from "../../components/Info";
 import Tech from "../../components/Tech";
 import RegisterTechModal from "../../components/RegisterTechModal";
 
-import { ITech, IUser } from "../../interfaces/User";
+import { ITech } from "../../interfaces/User";
 
 import { useEffect, useState } from "react";
-import { useNavigate, NavigateFunction } from "react-router-dom";
-
-import { AxiosRequest } from "../../classes/axios";
+import { useUser } from "../../contexts";
 
 function Home() {
-    const [user, setUser] = useState<IUser>();
+    const { user, getUpdateUser } = useUser();
     const [showTechCreation, setShowTechCreation] = useState<boolean>(false);
-    const navigate: NavigateFunction = useNavigate();
 
     function alternateShowTechCreation(): void {
         setShowTechCreation(!showTechCreation);
-    }
-
-    async function getUpdateUser() {
-        const token: string | null = localStorage.getItem("token");
-        if (!token) {
-            navigate("/login/");
-            return;
-        }
-        AxiosRequest.getUser(token)
-            .then((res) => setUser(res.data[0]))
-            .catch((err) => {
-                console.error(err);
-                navigate("/login/");
-            });
     }
 
     useEffect(() => {
