@@ -6,6 +6,8 @@ import Select from "../Select";
 import Input from "../Input";
 import Button from "../Button";
 
+import { toast, Id } from "react-toastify";
+
 import { AxiosRequest } from "../../classes/axios";
 import { Colors } from "../../utils";
 import { moduleOptions } from "../../schemas";
@@ -15,8 +17,37 @@ function EditTechModal({
     tech,
     showTechEdition,
 }: IEditTechModal) {
+    const TOAST_CONTAINER_TIME_TO_CLOSE: number = 1500;
+
     async function techDeletionHandler(id: string) {
+        const toastPopUp: Id = toast.loading("Excluindo...");
         const response: any = await AxiosRequest.deleteTech(id);
+        let message: string;
+
+        if (response.status != 204) {
+            message = "Falha na exclusão";
+            toast.update(toastPopUp, {
+                render: message,
+                type: "error",
+                isLoading: false,
+                pauseOnHover: true,
+                closeButton: true,
+                closeOnClick: true,
+                autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
+            });
+        } else {
+            message = "Tecnologia excluída";
+            toast.update(toastPopUp, {
+                render: message,
+                type: "success",
+                isLoading: false,
+                pauseOnHover: true,
+                closeButton: true,
+                closeOnClick: true,
+                autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
+            });
+            alternateTechEdition();
+        }
     }
 
     return (
