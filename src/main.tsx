@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom/client";
 
+import { UserProvider } from "./contexts";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 
@@ -10,14 +11,16 @@ import { GlobalStyle } from "./styles/global";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <>
-        <GlobalStyle />
-        <RouterProvider router={router} />
-        <ToastContainer
-            pauseOnHover
-            theme="dark"
-            closeOnClick
-            position="top-right"
-            autoClose={3000}
-        />
+        <UserProvider>
+            <GlobalStyle />
+            <RouterProvider router={router} />
+            <ToastContainer
+                pauseOnHover
+                theme="dark"
+                closeOnClick
+                position="top-right"
+                autoClose={3000}
+            />
+        </UserProvider>
     </>
 );
