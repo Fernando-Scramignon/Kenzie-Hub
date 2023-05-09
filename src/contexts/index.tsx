@@ -37,7 +37,6 @@ function UserProvider({ children }: UserProviderProps) {
         }
         AxiosRequest.getUser(token)
             .then((res) => {
-                console.log(res.data[0]);
                 setUser(res.data[0]);
             })
             .catch((err) => {
