@@ -1,5 +1,4 @@
 import { IUser } from "../interfaces/User";
-// import { UserContextType } from "../interfaces/Context";
 import {
     createContext,
     ReactNode,
@@ -8,8 +7,6 @@ import {
     Dispatch,
     SetStateAction,
 } from "react";
-import { useNavigate, NavigateFunction } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { AxiosRequest } from "../classes/axios";
 
 interface UserProviderProps {
