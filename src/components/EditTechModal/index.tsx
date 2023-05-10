@@ -1,4 +1,4 @@
-import { IEditTechModal } from "../../interfaces/Tech";
+import { IEditTechModal, IRegisterTech } from "../../interfaces/Tech";
 import { ITech } from "../../interfaces/User";
 import { Container, EditTechHeader, EditTechBody, Backdrop } from "./style";
 import { CSSTransition } from "react-transition-group";
@@ -67,10 +67,17 @@ function EditTechModal({
         }
     }
 
-    async function techEditionHandler(data: Partial<ITech>): Promise<void> {
+    interface ITechRegister {
+        title?: string;
+        status?: string;
+    }
+    async function techEditionHandler(
+        data: Partial<IRegisterTech>
+    ): Promise<void> {
         const toastPopUp: Id = toast.loading("Editando...");
         const response: any = await AxiosRequest.editTech(tech.id, data);
         let message: string = "Tecnologia editada";
+
         if (response.status != 200) {
             message = "Falha na edição";
             if (response.response.data.title.includes("already registered"))
