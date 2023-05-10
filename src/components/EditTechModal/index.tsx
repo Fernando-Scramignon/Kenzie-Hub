@@ -70,6 +70,13 @@ function EditTechModal({
     async function techEditionHandler(
         data: Partial<IRegisterTech>
     ): Promise<void> {
+        // removes empty keys
+        Object.keys(data).forEach(
+            (key: string) =>
+                data[key as keyof IRegisterTech] == "" &&
+                delete data[key as keyof IRegisterTech]
+        );
+
         const toastPopUp: Id = toast.loading("Editando...");
         const response: any = await AxiosRequest.editTech(tech.id, data);
         let message: string = "Tecnologia editada";
