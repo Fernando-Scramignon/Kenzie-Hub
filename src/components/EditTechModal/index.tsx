@@ -68,14 +68,32 @@ function EditTechModal({
     }
 
     async function techEditionHandler(data: Partial<ITech>): Promise<void> {
+        const toastPopUp: Id = toast.loading("Editando...");
         const response: any = await AxiosRequest.editTech(tech.id, data);
-        let message: string;
+        let message: string = "Tecnologia editada";
         if (response.status != 200) {
             message = "Falha na edição";
             if (response.response.data.title.includes("already registered"))
                 message = "Você já registrou essa tecnologia";
-            console.log(message);
+            toast.update(toastPopUp, {
+                render: message,
+                type: "error",
+                isLoading: false,
+                pauseOnHover: true,
+                closeButton: true,
+                closeOnClick: true,
+                autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
+            });
         } else {
+            toast.update(toastPopUp, {
+                render: message,
+                type: "success",
+                isLoading: false,
+                pauseOnHover: true,
+                closeButton: true,
+                closeOnClick: true,
+                autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
+            });
             getUpdateUser();
             alternateTechEdition();
         }
