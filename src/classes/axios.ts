@@ -106,11 +106,12 @@ class AxiosRequest {
     ): Promise<any> {
         const options = {
             method: "PATCH",
-            url: `${this.BASE_URL}${this.TECH_PATH}/${techId}/`,
+            url: `${this.BASE_URL}${this.TECH_PATH}${techId}/`,
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
+            data: data,
         };
         const response: Promise<any> = axios
             .request(options)

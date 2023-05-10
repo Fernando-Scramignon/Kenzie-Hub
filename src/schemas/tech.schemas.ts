@@ -14,4 +14,9 @@ const techSchema = yup.object({
         .max(256, maxCharMessage(256)),
 });
 
-export { STATUS_OPTIONS, techSchema };
+const techEditSchema = yup.object({
+    title: yup.string().max(256, maxCharMessage(256)),
+    status: yup.string().max(256, maxCharMessage(256)),
+});
+
+export { STATUS_OPTIONS, techSchema, techEditSchema };

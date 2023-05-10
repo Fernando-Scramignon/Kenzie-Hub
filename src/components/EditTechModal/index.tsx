@@ -1,4 +1,5 @@
 import { IEditTechModal } from "../../interfaces/Tech";
+import { ITech } from "../../interfaces/User";
 import { Container, EditTechHeader, EditTechBody, Backdrop } from "./style";
 import { CSSTransition } from "react-transition-group";
 
@@ -11,7 +12,11 @@ import { toast, Id } from "react-toastify";
 import { useUser } from "../../contexts";
 import { AxiosRequest } from "../../classes/axios";
 import { Colors } from "../../utils";
-import { moduleOptions } from "../../schemas";
+import { STATUS_OPTIONS } from "../../schemas/tech.schemas";
+
+import { yupResolver } from "@hookform/resolvers/yup";
+import { techEditSchema } from "../../schemas/tech.schemas";
+import { useForm } from "react-hook-form";
 
 function EditTechModal({
     alternateTechEdition,
@@ -20,9 +25,17 @@ function EditTechModal({
 }: IEditTechModal) {
     const { getUpdateUser } = useUser();
 
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<Partial<ITech>>({
+        resolver: yupResolver(techEditSchema),
+    });
+
     const TOAST_CONTAINER_TIME_TO_CLOSE: number = 1500;
 
-    async function techDeletionHandler(id: string) {
+    async function techDeletionHandler(id: string): Promise<void> {
         const toastPopUp: Id = toast.loading("Excluindo...");
         const response: any = await AxiosRequest.deleteTech(id);
         let message: string;
@@ -54,6 +67,20 @@ function EditTechModal({
         }
     }
 
+    async function techEditionHandler(data: Partial<ITech>): Promise<void> {
+        const response: any = await AxiosRequest.editTech(tech.id, data);
+        let message: string;
+        if (response.status != 200) {
+            message = "Falha na edição";
+            if (response.response.data.title.includes("already registered"))
+                message = "Você já registrou essa tecnologia";
+            console.log(message);
+        } else {
+            getUpdateUser();
+            alternateTechEdition();
+        }
+    }
+
     return (
         <CSSTransition
             in={showTechEdition}
@@ -68,17 +95,20 @@ function EditTechModal({
                         <h3 className="test">Tecnologia detalhes</h3>
                         <span onClick={alternateTechEdition}>X</span>
                     </EditTechHeader>
-                    <EditTechBody>
+                    <EditTechBody onSubmit={handleSubmit(techEditionHandler)}>
                         <div className="input-div">
                             <Input
                                 label="Nome do projeto"
-                                name="techTitle"
+                                name="title"
+                                register={register}
+                                errors={errors}
                                 placeholder={tech.title}
                             />
                             <Select
                                 label="Status"
-                                name="techStatus"
-                                options={moduleOptions}
+                                name="status"
+                                register={register}
+                                options={STATUS_OPTIONS}
                             />
                         </div>
                         <div className="button-div">

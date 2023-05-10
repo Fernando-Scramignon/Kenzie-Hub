@@ -74,7 +74,7 @@ const EditTechHeader = styled.div`
     }
 `;
 
-const EditTechBody = styled.div`
+const EditTechBody = styled.form`
     /* size */
     min-height: 200px;
     padding: 22px 18px 0px;
