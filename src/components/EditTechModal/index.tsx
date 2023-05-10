@@ -67,10 +67,6 @@ function EditTechModal({
         }
     }
 
-    interface ITechRegister {
-        title?: string;
-        status?: string;
-    }
     async function techEditionHandler(
         data: Partial<IRegisterTech>
     ): Promise<void> {
