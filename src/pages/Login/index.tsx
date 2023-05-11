@@ -68,7 +68,7 @@ function Login() {
                 closeOnClick: true,
                 closeButton: true,
                 autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
-                onClose: () => navigate("/"),
+                onClose: () => navigate("/dashboard/"),
             });
         }
     }

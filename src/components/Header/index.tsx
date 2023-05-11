@@ -12,7 +12,7 @@ function Header() {
 
     function logout(): void {
         localStorage.clear();
-        navigate("/login/");
+        navigate("/");
     }
 
     return (

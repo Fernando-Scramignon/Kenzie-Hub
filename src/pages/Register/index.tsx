@@ -32,7 +32,7 @@ function Register() {
 
     const navigate: NavigateFunction = useNavigate();
     function navigatetoLogin(): void {
-        navigate("/login/");
+        navigate("/");
     }
 
     const {
@@ -65,7 +65,7 @@ function Register() {
                 closeButton: true,
                 closeOnClick: true,
                 autoClose: TOAST_CONTAINER_TIME_TO_CLOSE,
-                onClose: () => navigate("/login/"),
+                onClose: () => navigate("/"),
             });
         }
     }
