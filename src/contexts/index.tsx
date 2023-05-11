@@ -42,6 +42,7 @@ function UserProvider({ children }: UserProviderProps) {
             .catch((err) => {
                 console.error(err);
                 window.location.href = "/login/";
+                setUser(undefined);
             });
     }
 
