@@ -36,6 +36,7 @@ function EditTechModal({
     const TOAST_CONTAINER_TIME_TO_CLOSE: number = 1500;
 
     async function techDeletionHandler(id: string): Promise<void> {
+        console.log("I ran");
         const toastPopUp: Id = toast.loading("Excluindo...");
         const response: any = await AxiosRequest.deleteTech(id);
         let message: string;
@@ -70,6 +71,7 @@ function EditTechModal({
     async function techEditionHandler(
         data: Partial<IRegisterTech>
     ): Promise<void> {
+        console.log("Edition");
         // removes empty keys
         Object.keys(data).forEach(
             (key: string) =>
@@ -152,6 +154,7 @@ function EditTechModal({
                                 id="delete-tech-button"
                                 background={Colors.grey1}
                                 hoverBackground={Colors.grey2}
+                                type="button"
                                 clickFunction={() =>
                                     techDeletionHandler(tech.id)
                                 }

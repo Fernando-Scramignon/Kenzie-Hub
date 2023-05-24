@@ -9,6 +9,7 @@ function Button({
     color = "white",
     id,
     clickFunction,
+    type = "submit",
 }: IButton) {
     return (
         <Container
@@ -17,6 +18,7 @@ function Button({
             color={color}
             hoverBackground={hoverBackground}
             id={id}
+            type={type}
         >
             {children}
         </Container>

@@ -7,6 +7,7 @@ interface IButton {
     clickFunction?: Function;
     children: ReactNode;
     id?: string;
+    type?: "submit" | "button";
 }
 
 export type { IButton };
