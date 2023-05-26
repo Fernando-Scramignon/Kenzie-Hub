@@ -33,7 +33,7 @@ function Home() {
                         +
                     </span>
                 </div>
-                {user?.techs.length != 0 && (
+                {!!user?.techs.length && (
                     <div className="tech-list">
                         {user?.techs.map((tech: ITech) => (
                             <Tech key={tech.id} tech={tech} />
