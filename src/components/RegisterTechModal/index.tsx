@@ -93,6 +93,7 @@ function RegisterTechModal({
                         onSubmit={handleSubmit(onSubmitFunction)}
                     >
                         <Input
+                            id="register-tech-title-input"
                             label="Nome"
                             name="title"
                             register={register}

@@ -126,6 +126,7 @@ function EditTechModal({
                     <EditTechBody onSubmit={handleSubmit(techEditionHandler)}>
                         <div className="input-div">
                             <Input
+                                id="edit-tech-title-input"
                                 label="Nome do projeto"
                                 name="title"
                                 register={register}
