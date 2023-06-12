@@ -87,7 +87,7 @@ function Input({
     };
 
     return (
-        <Container onClick={() => console.log(errors)}>
+        <Container>
             <div className="label-div">
                 <label htmlFor={id}>{label}</label>
                 <span className="form-errors">
