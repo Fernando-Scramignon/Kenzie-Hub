@@ -4,7 +4,7 @@ import { IRegister } from "../interfaces/Login";
 import { IRegisterTech } from "../interfaces/Tech";
 
 class AxiosRequest {
-    static BASE_URL = "http://localhost:8000/api/";
+    static BASE_URL = "https://kenzie-hub-api-production.up.railway.app/api/";
 
     static LOGIN_PATH: string = "login/";
 
