@@ -17,7 +17,8 @@ const moduleOptions = [
     "Quarto módulo",
 ];
 
-const PASSWORD_REGEX: RegExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+const NEW_REGEX: RegExp = /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/;
+// const PASSWORD_REGEX: RegExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
 const userSchema = yup.object({
     name: yup
@@ -41,7 +42,8 @@ const userSchema = yup.object({
         .string()
         .required(requiredMessage("Senha"))
         .max(256, maxCharMessage(256))
-        .matches(PASSWORD_REGEX, "Senha em formato inválido"),
+        .matches(/^\S+$/, "Não pode conter espaços")
+        .min(8, "Mínimo de 8 caracteres"),
     passwordMatch: yup
         .string()
         .required(requiredMessage("Confirmação"))
