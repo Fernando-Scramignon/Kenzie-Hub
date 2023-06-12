@@ -12,6 +12,7 @@ interface IInput {
     //     | "course_module"
     //     | "passwordMatch";
     name: string;
+    id: string;
     register?: UseFormRegister<any>;
     errors?: any;
     placeholder: string;

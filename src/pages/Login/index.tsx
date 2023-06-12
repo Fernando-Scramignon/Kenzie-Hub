@@ -79,6 +79,7 @@ function Login() {
             <LoginForm onSubmit={handleSubmit(onSubmitFunction)}>
                 <h2>Login</h2>
                 <Input
+                    id="email-login-input"
                     name="email"
                     label="Email"
                     placeholder="Digite seu email aqui"
@@ -86,6 +87,7 @@ function Login() {
                     errors={errors}
                 />
                 <Input
+                    id="password-login-input"
                     name="password"
                     label="Senha"
                     placeholder="Digite sua senha aqui"

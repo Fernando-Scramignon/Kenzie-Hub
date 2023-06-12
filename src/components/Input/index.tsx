@@ -10,6 +10,7 @@ import { Colors } from "../../utils";
 
 function Input({
     name,
+    id,
     label,
     placeholder,
     type = "default",
@@ -44,6 +45,7 @@ function Input({
         default: register ? (
             <input
                 className="default-input"
+                id={id}
                 type="text"
                 placeholder={placeholder}
                 {...register(name)}
@@ -51,6 +53,7 @@ function Input({
         ) : (
             <input
                 name={name}
+                id={id}
                 className="default-input"
                 type="text"
                 placeholder={placeholder}
@@ -60,6 +63,7 @@ function Input({
             <PasswordDiv>
                 <input
                     type={isPasswordVisible ? "text" : "password"}
+                    id={id}
                     placeholder={placeholder}
                     {...register(name)}
                 />
@@ -71,6 +75,7 @@ function Input({
             <PasswordDiv>
                 <input
                     name={name}
+                    id={id}
                     type={isPasswordVisible ? "text" : "password"}
                     placeholder={placeholder}
                 />
@@ -82,9 +87,9 @@ function Input({
     };
 
     return (
-        <Container>
+        <Container onClick={() => console.log(errors)}>
             <div className="label-div">
-                <label htmlFor="input">{label}</label>
+                <label htmlFor={id}>{label}</label>
                 <span className="form-errors">
                     {errors && errors[name]?.message}
                 </span>

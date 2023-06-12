@@ -90,6 +90,7 @@ function Register() {
                 </FormTitleDiv>
                 <FormInputDiv>
                     <Input
+                        id="name-register-input"
                         name="name"
                         label="Nome"
                         placeholder="Digite aqui seu nome"
@@ -97,6 +98,7 @@ function Register() {
                         errors={errors}
                     />
                     <Input
+                        id="email-register-input"
                         name="email"
                         label="Email"
                         placeholder="Digite aqui seu email"
@@ -104,6 +106,7 @@ function Register() {
                         errors={errors}
                     />
                     <Input
+                        id="password-register-input"
                         name="password"
                         label="Senha"
                         placeholder="Digite aqui sua senha"
@@ -112,6 +115,7 @@ function Register() {
                         errors={errors}
                     />
                     <Input
+                        id="password-match-register-input"
                         name="passwordMatch"
                         label="Confirmar senha"
                         placeholder="Digite sua senha novamente"
@@ -120,6 +124,7 @@ function Register() {
                         errors={errors}
                     />
                     <Input
+                        id="bio-register-input"
                         name="bio"
                         label="Bio"
                         placeholder="Fale sobre você"
@@ -127,6 +132,7 @@ function Register() {
                         errors={errors}
                     />
                     <Input
+                        id="contact-register-input"
                         name="contact"
                         label="Contato"
                         placeholder="Opção de contato"
